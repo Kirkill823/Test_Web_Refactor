@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/my_page', [IndexController::class, 'about']);
+Route::get('/show', [IndexController::class, 'show']);
 
 Route::get('/DontBeAfraidJohn', [IndexController::class, 'DontBeAfraidJohn']);
 

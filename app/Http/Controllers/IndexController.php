@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-   public function about(){
-       echo 'this is about';
-       $info = Info::find(1);
-       dd($info);
+   public function show(){
+       $infos = info::all();
+       json_encode($infos);
+       return view('info', compact('infos'));
+
    }
+
    public function DontBeAfraidJohn(){
        return 'BOOM';
    }
+
    public function store(){
        return 'this is store';
    }
