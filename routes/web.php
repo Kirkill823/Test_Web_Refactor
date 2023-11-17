@@ -3,23 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'show']);//Показать все
 
-Route::get('/show', [IndexController::class, 'show']);
+Route::get('/add', [IndexController::class, 'add']);//Добавить
+Route::post('/add/complete', [IndexController::class, 'addComplete']);//Добавление данных в бд
 
-Route::get('/DontBeAfraidJohn', [IndexController::class, 'DontBeAfraidJohn']);
+Route::get('/search', [IndexController::class, 'search']);//Поиск
+Route::post('/search/explore', [IndexController::class, 'explore'])->name('explore');//Поиск по ключу
 
-Route::get('/store', [IndexController::class, 'store']);
